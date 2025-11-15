@@ -12,7 +12,8 @@ export default class RevealDecision extends Component {
             exchange: ["ambassador"],
             steal: ["captain"],
             block_foreign_aid: ["duke"],
-            block_steal: ["ambassador", "captain"],
+            block_steal_with_ambassador: ["ambassador"],
+            block_steal_with_captain: ["captain"],
             block_assassinate: ["contessa"],
         }
     }

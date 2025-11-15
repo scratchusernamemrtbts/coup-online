@@ -83,15 +83,15 @@ export default class BlockDecision extends Component {
                 <button onClick={() => this.block('block_foreign_aid')}>Block Foreign Aid</button>
                 </>
             } else if(this.props.action.action === 'steal') {
-                control = <button onClick={() => this.pickClaim('block_steal')}>Block Steal</button>
+                control = <button onClick={() => this.pickClaim('block_steal_with_')}>Block Steal</button>
             } else if(this.props.action.action === 'assassinate') {
                 control = <button onClick={() => this.block('block_assassinate')}>Block Assassination</button>
             }
         } else {
             pickClaim = <>
                 <p>To block steal, do you claim Ambassador or Captain?</p>
-                <button onClick={() => this.block(this.state.decision, 'ambassador')}>Ambassador</button>
-                <button onClick={() => this.block(this.state.decision, 'captain')}>Captain</button>
+                <button onClick={() => this.block(this.state.decision+'ambassador', 'ambassador')}>Ambassador</button>
+                <button onClick={() => this.block(this.state.decision+'captain', 'captain')}>Captain</button>
             </>
         }
         

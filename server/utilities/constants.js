@@ -58,8 +58,11 @@ const CounterActions = {
     block_foreign_aid: {
         influences: [CardNames.DUKE]
     },
-    block_steal: {
-        influences: [CardNames.AMBASSADOR, CardNames.CAPTAIN]
+    block_steal_with_ambassador: {
+        influences: [CardNames.AMBASSADOR]
+    },
+    block_steal_with_captain: {
+        influences: [CardNames.CAPTAIN]
     },
     block_assassinate: {
         influences: [CardNames.CONTESSA]
