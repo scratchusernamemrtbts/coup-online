@@ -7,8 +7,7 @@ const CardNames = {
     values: function () {
         return [this.DUKE, this.ASSASSIN, this.CAPTAIN, this.AMBASSADOR, this.CONTESSA]
     }
- };
- 
+};
 const Actions = {
     income: {
         influence: "all",
@@ -53,7 +52,6 @@ const Actions = {
         moneyDelta: 2 // EDGE CASE: if victim only has 1 or 0 coins
     }
 };
-
 const CounterActions = {
     block_foreign_aid: {
         influences: [CardNames.DUKE]
@@ -68,9 +66,4 @@ const CounterActions = {
         influences: [CardNames.CONTESSA]
     },
 };
-
-module.exports = {
-    CardNames: CardNames,
-    Actions: Actions,
-    CounterActions: CounterActions,
-}
+export default { CardNames, Actions, CounterActions}

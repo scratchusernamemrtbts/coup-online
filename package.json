@@ -1,0 +1,24 @@
+{
+  "name": "coup-online",
+  "version": "0.9.0",
+  "description": "",
+  "private": false,
+  "dependencies": {
+    "serve": "14.2.5"
+  },
+  "devDependencies": {
+    "eslint": "9.39.1"
+  },
+  "scripts": {
+    "install": "(cd coup-client && pnpm i) & (cd server && pnpm i) & wait",
+    "build": "cd coup-client && pnpm build",
+    "dev": "cd coup-client && pnpm start & cd ../server; pnpm start",
+    "prod": "serve coup-client/build & (cd server && node index.js) & wait",
+    "start": "docker compose up -d --build",
+    "lint": "echo 'NOT IMPLEMENTED'"
+  },
+  "engines": {
+    "node": "24.11.1"
+  },
+  "packageManager": "pnpm@10.22.0"
+}

@@ -1,13 +1,15 @@
-const express = require('express');
-const moment = require('moment');
+import express from 'express';
+import moment from 'moment';
 
 // Server/express setup
 const app = express();
-const cors = require('cors');
+import cors from 'cors';
 app.use(cors());
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
-const CoupGame = require('./game/coup');
+import http from 'http'
+const server = http.createServer(app)
+import { Server } from 'socket.io'
+const io = new Server(server);
+import { CoupGame } from './game/coup.js';
 // const game = new CoupGame([ { name: 'Ethan',
 // socketID: '/DPRI33#OJIB1ERYp-M_K-m5AAAD',
 // isReady: true },
@@ -19,7 +21,7 @@ const CoupGame = require('./game/coup');
 // isReady: true } ], '', '')
 // game.start();
 // require("./routes")(app);
-const utilities = require('./utilities/utilities');
+import { generateNamespace } from './utilities/utilities.js';
 
 // Constants
 const port = 8000;
@@ -30,7 +32,7 @@ let namespaces = {}; //AKA party rooms
 app.get('/createNamespace', function (req, res) { 
     let newNamespace = '';
     while(newNamespace === '' || (newNamespace in namespaces)) {
-        newNamespace = utilities.generateNamespace(); //default length 6
+        newNamespace = generateNamespace(); //default length 6
     }
     const newSocket = io.of(`/${newNamespace}`);
     openSocket(newSocket, `/${newNamespace}`);
@@ -45,7 +47,7 @@ app.get('/exists/:namespace', function (req, res) { //returns bool
 })
 
 //game namespace: oneRoom
-openSocket = (gameSocket, namespace) => {
+const openSocket = (gameSocket, namespace) => {
     let players = []; //includes deleted for index purposes
     let partyMembers = []; //actual members
     let partyLeader = ''
@@ -151,7 +153,7 @@ openSocket = (gameSocket, namespace) => {
     }, 10000)
 }
 
-startGame = (players, gameSocket, namespace) => {
+const startGame = (players, gameSocket, namespace) => {
     namespaces[namespace.substring(1)] = new CoupGame(players, gameSocket);
     namespaces[namespace.substring(1)].start();
 }
