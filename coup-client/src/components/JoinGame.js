@@ -176,7 +176,7 @@ export default class JoinGame extends Component {
                 <p>Room Code</p>
                 <input
                     type="text" value={this.state.roomCode} disabled={this.state.isLoading}
-                    onChange={e => this.onCodeChange(e.target.value)}
+                    onChange={e => this.onCodeChange(e.target.value.toUpperCase())}
                 />
                 <br></br>
                 {joinReady}
