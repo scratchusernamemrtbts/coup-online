@@ -1,0 +1,8 @@
+services:
+  coup:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - ${PORT}:80
+    volumes:
+      - ./logs:/logs
