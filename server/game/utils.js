@@ -1,6 +1,6 @@
 import constants from "../utilities/constants.js"
 
-export const buildDeck = () => {
+const buildDeck = () => {
   let deck = []
   let cardNames = constants.CardNames.values()
   for (let card of cardNames) {
@@ -15,7 +15,7 @@ export const buildDeck = () => {
   return deck
 }
 
-export function addToDeck(cardName, deck) {
+function addToDeck(cardName, deck) {
   if (!cardName || !deck) {
     console.log("cardName and deck must not be undefined.")
     return
@@ -25,7 +25,7 @@ export function addToDeck(cardName, deck) {
   }
 }
 
-export const shuffleArray = (arr) => {
+const shuffleArray = (arr) => {
   if (!arr) {
     console.log(`arr must not be undefined. arr was ${arr}`)
   }
@@ -40,7 +40,7 @@ export const shuffleArray = (arr) => {
   return arr
 }
 
-export const buildNameSocketMap = (players) => {
+const buildNameSocketMap = (players) => {
   let map = {}
   players.map((x) => {
     map[x.name] = x.socketID
@@ -48,7 +48,7 @@ export const buildNameSocketMap = (players) => {
   return map
 }
 
-export const buildNameIndexMap = (players) => {
+const buildNameIndexMap = (players) => {
   let map = {}
   players.map((x, index) => {
     map[x.name] = index
@@ -56,8 +56,8 @@ export const buildNameIndexMap = (players) => {
   return map
 }
 
-export const buildPlayers = (players) => {
-  colors = [
+const buildPlayers = (players) => {
+  const colors = [
     "#73C373",
     "#7AB8D3",
     "#DD6C75",
@@ -80,11 +80,18 @@ export const buildPlayers = (players) => {
   return players
 }
 
-export const exportPlayers = (players) => {
+const exportPlayers = (players) => {
   players.forEach((x) => {
     delete x.socketID
   })
   return players
 }
 
-export default {}
+export default {
+  buildDeck,
+  buildPlayers,
+  exportPlayers,
+  shuffleArray,
+  buildNameSocketMap,
+  buildNameIndexMap
+}

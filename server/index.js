@@ -7,7 +7,7 @@ import cors from 'cors';
 app.use(cors());
 import http from 'http'
 const server = http.createServer(app)
-import { Server } from 'socket.io'
+import Server from 'socket.io'
 const io = new Server(server);
 import { CoupGame } from './game/coup.js';
 // const game = new CoupGame([ { name: 'Ethan',
