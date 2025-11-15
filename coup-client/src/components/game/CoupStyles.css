@@ -285,7 +285,7 @@
     border-radius: 5px;
     font-family: 'Muli', sans-serif;
     background-color: #BCBCBC;
-    border: none;
+    border: 0px solid transparent;
     color: white;
     margin: 20px;
     margin-bottom: 0px;
@@ -293,6 +293,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
+    filter: none;
+    transition: filter 0.3s ease-in-out, border 0.2s ease-in-out;
 }
 #captain {
     background-color: #80C6E5;
@@ -323,6 +325,13 @@
 }
 #ambassador-color {
   color: #B4CA1F;
+}
+#submit {
+  background-color: #4CAF50;
+}
+.DecisionsSection button.Selected {
+  border: 4px solid #2196F3;
+  filter: saturate(2);
 }
 .DecisionTitle {
     text-align: left;
